@@ -1,0 +1,8 @@
+.DS_Store
+*/.DS_Store
+/frontend/.DS_Store
+/frontend/src/.DS_Store
+/frontend/src/circuits/.DS_Store
+node_modules
+/backend/config.js
+/frontend/src/assets/.DS_Store
