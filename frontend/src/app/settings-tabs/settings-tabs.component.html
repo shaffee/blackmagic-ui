@@ -1,0 +1,20 @@
+<div class="list-group">
+    <a [routerLink]="['/settings/designer']" [ngClass]="{'active' : getTab()=='designer'}" class="list-group-item list-group-item-action" aria-current="true">
+        مصمم الشريط
+    </a>
+
+    <a [routerLink]="['/settings/fonts']" [ngClass]="{'active' : getTab()=='fonts'}" class="list-group-item list-group-item-action" aria-current="true">
+        الخطوط
+    </a>
+
+
+    <a [routerLink]="['/settings/animations']" [ngClass]="{'active' : getTab()=='animations'}" class="list-group-item list-group-item-action" aria-current="true">
+        الحركة
+    </a>
+
+    <a [routerLink]="['/settings/logo']" [ngClass]="{'active' : getTab()=='logo'}" class="list-group-item list-group-item-action" aria-current="true">
+        شعار الزاوية
+    </a>
+
+
+</div>

@@ -1,0 +1,25 @@
+<ul class="nav nav-pills nav-flush flex-column mb-auto text-center side-nav p-0">
+    <li class="nav-item">
+      <a [routerLink]="['/']" [ngClass]="{'active' : getTab()=='home'}" class="side-nav-link active nav-link border-bottom" data-toggle="tooltip" data-placement="right"  title="Homepage">
+        <div class="side-tab-icon"><i class="bi bi-house-door"></i></div> الرئيسية
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a [routerLink]="['/viewer/textsliders']" [ngClass]="{'active' : getTab()=='textsliders'}" class="side-nav-link nav-link border-bottom" title="" data-toggle="tooltip" data-placement="right" title="Orders">
+        <div class="side-tab-icon"><i class="bi bi-card-heading"></i></div> شريط الإعلانات
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a [routerLink]="['/settings']" [ngClass]="{'active' : getTab()=='settings'}" href="#" class="side-nav-link nav-link border-bottom" title="" data-toggle="tooltip" data-placement="right" title="Orders">
+        <div class="side-tab-icon"><i class="bi bi-gear"></i></div> الإعدادات
+        <!-- <small>{{getUser()}}</small> -->
+      </a>
+    </li>
+    
+
+
+  </ul>

@@ -1,0 +1,29 @@
+<nav class="open-circuit-navbar navbar navbar-expand-lg navbar-light bg-light position-sticky top-0 start-0">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ol class="breadcrumb navbar-nav  mb-2 mb-lg-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Editor</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Open Circuit</li>
+          </ol>
+        
+
+        <button (click)="backClicked()"  class="ms-5 btn btn-sm btn-danger" type="button">Back</button>
+        
+  
+      </div>
+    </div>
+  </nav>
+  
+<div class="d-flex justify-content-around3 flex-wrap">
+      <div class="card ms-2 mt-2" style="width: 18rem;" *ngFor="let circuit of circuits">
+        <img [src]="circuit.png" class="circuit-image" />
+
+
+        <div class="card-body">
+          <h5 class="card-title">{{circuit.title}}</h5>
+          <a class="btn btn-primary" href="/editor/{{circuit._id}}">Edit Circuit</a>
+        </div>
+      </div>
+</div>

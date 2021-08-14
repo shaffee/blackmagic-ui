@@ -1,0 +1,26 @@
+
+<div class="row p-3">
+  <form (submit)="addslider()" class="form-signin"  role="form">
+    <p *ngIf="errors.length" class="alert alert-danger">
+      <b>قم بتصحيح الأخطاء التالية</b>
+      <ul>
+        <li *ngFor="let error of errors">{{error}}</li>
+      </ul>
+
+      <div class="form-group mb-3">
+      <label for="exampleInputEmail1" class="form-label">نص الإعلان</label>
+      <input [(ngModel)]="form.text" name="text" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+    </div>
+    <div class="form-group mb-3">
+      <label for="exampleInputPassword1" class="form-label">عدد الثواني</label>
+      <input [(ngModel)]="form.seconds" name="seconds" type="text" value="10" class="form-control" id="exampleInputPassword1" placeholder="">
+    </div>
+    <div class="form-group mb-3">
+      <label for="exampleInputPassword1" class="form-label">حجم الخط</label>
+      <input [(ngModel)]="form.textsize" name="textsize" type="text" value="20" class="form-control" id="" placeholder="">
+    </div> 
+    <hr>
+    <button type="submit" class="btn btn-primary ms-4" >أضف</button>
+    <a [routerLink]="['/viewer/textsliders']" class="">رجوع</a>
+  </form>
+</div>

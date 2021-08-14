@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 circuit-title-field" *ngIf="editTitle">
+        <input name="circuitTitle" [(ngModel)]="this.editorservice.circuitTitle" (focusout)="saveTitle()" type="text" class="form-control form-control-sm" placeholder="" aria-label="">
+      </form>
+      <label (click)="editTitleClicked()" class="circuit-title-label">{{this.editorservice.getTitle()}}</label>
+      
+      <div class="ms-auto " type="button">Welcome {{this.editorservice.username()}}</div>
+      <button class="mr-10 ms-2 btn btn-sm btn-outline-danger" type="button" [routerLink]="['/']">Back</button>
+
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-expand-sm  navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+      <ul class="navbar-nav  mb-2 mb-lg-0 hide-mobile">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            File
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" (click)="save()">Save</a></li>
+            <li><a class="dropdown-item" [routerLink]="['open']">Open</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Display
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" (click)="toggleProperties()">
+              <i [class]="this.editorservice.display.getValue()['properties'] ? 'bi bi-check-square-fill' : 'bi bi-square'"></i> Properties</a></li>
+            <li><a class="dropdown-item" (click)="toggleInspector()"><i [class]="this.editorservice.display.getValue()['inspector'] ? 'bi bi-check-square-fill' : 'bi bi-square'"></i> Inspector</a></li>
+            <li><a class="dropdown-item" (click)="toggleComponents()"><i [class]="this.editorservice.display.getValue()['components'] ? 'bi bi-check-square-fill' : 'bi bi-square'"></i> Components</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        
+      </ul>
+      <button (click)="clearCircuit()" class="btn-sm ms-5 btn  btn-outline-secondary mobile-btn" type="button">Clear Circuit</button>
+      <button [routerLink]="['open']" class="btn-sm ms-5 btn  btn-outline-secondary mobile-btn" type="button">Open</button>
+
+      <button *ngIf="!isSumilating()" (click)="simulate()" class="btn-sm ms-1 btn btn-secondary " type="button"><i class="bi bi-play-fill"></i> Run</button>
+      <button *ngIf="isSumilating()" (click)="stop()" class="btn-sm ms-1 btn btn-success " type="button"><i class="bi bi-stop-fill"></i> Running </button>
+      <div class="btn-group btn-group-sm hide-mobile ms-2" role="group" aria-label="">
+        <button type="button" class="btn btn-outline-secondary" (click)="undo()"><i class="bi bi-arrow-counterclockwise"></i> Undo</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="redo()"> Redo <i class="bi bi-arrow-clockwise"></i></button>
+      </div>
+
+      <div class="btn-group btn-group-sm hide-mobile  ms-2" role="group" aria-label="">
+        <button type="button" class="btn btn-outline-secondary" (click)="zoomin()"><i class="bi bi-plus"></i></button>
+        <button type="button" class="btn btn-outline-secondary" (click)="zoomfit()">1:1</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="zoomout()"> -- </button>
+      </div>
+
+      
+
+    </div>
+  </div>
+</nav>

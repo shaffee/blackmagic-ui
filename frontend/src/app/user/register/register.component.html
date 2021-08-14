@@ -1,0 +1,43 @@
+<div class="editor-flex">
+	<div class="navigation-tabs">
+	  <app-side-tabs activeTab="register"></app-side-tabs>     
+	</div>
+  
+	<div class="home">
+		<div id="logreg-forms">
+			<form (submit)="register()" class="form-signin"  role="form">
+				
+				<p *ngIf="errors.length" class="alert alert-danger">
+					<b>Please correct the following error(s):</b>
+					<ul>
+						<li *ngFor="let error of errors">{{error}}</li>
+					</ul>
+			   
+				<div class="mb-3">
+					<label for="nameField" class="form-label">Your Name</label>
+					<input  [(ngModel)]="form.fullname" type="text" class="form-control" id="nameField" placeholder="Enter your full name" name="fullname">
+				</div>
+				
+				<div class="mb-3">
+					<label for="emailField" class="form-label">Email address</label>
+					<input [(ngModel)]="form.email"  type="email" class="form-control" id="emailField" placeholder="Enter email" name="email">
+				</div>
+				
+				<div class="mb-3">
+					<label for="passwordField" class="form-label">Password</label>
+					<input [(ngModel)]="form.password" type="password" class="form-control" id="passwordField" placeholder="Password" name="password">
+				</div>
+		
+				<div class="mb-3">
+					<label for="passwordField2"  class="form-label">Confirm password</label>
+					<input  [(ngModel)]="form.password2" type="password" class="form-control" id="passwordField2" placeholder="Password" name="password">
+				</div>
+		
+				<input type="submit" class="btn btn-success " value="Submit" /> &nbsp;
+				<button data-url="{site.url}/main/home" class="btn btn-success">Back</button>
+		
+			</form>
+			
+		</div>
+	</div>
+  </div>

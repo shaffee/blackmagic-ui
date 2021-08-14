@@ -1,0 +1,70 @@
+<div class="viewer-flex">
+<div class="navigation-tabs settings-form p-4">
+    <form>
+        <div class="form-group mb-4">
+            <label for="customRange1" class="form-label">الهامش الخارجي</label>
+            <input type="range" class="form-range" id="customRange1" [(ngModel)]="this.bservice.settings.margin" name="margin">
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="customRange1" class="form-label">الهامش الداخلي</label>
+            <input type="range" class="form-range" id="customRange1" [(ngModel)]="this.bservice.settings.padding" name="padding">
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="customRange1" class="form-label">حجم الخط</label>
+            <input type="range" class="form-range" id="customRange1" [(ngModel)]="this.bservice.settings.textsize" name="padding">
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="customRange1" class="form-label">محاذاة النص</label> <br />
+
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="direction:ltr">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="left" [(ngModel)]="this.bservice.settings.textalign" [checked]="this.bservice.settings.textalign=='left'">
+                <label class="btn btn-outline-primary" for="btnradio3"><i class="bi bi-text-left"></i></label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="center" [(ngModel)]="this.bservice.settings.textalign" [checked]="this.bservice.settings.textalign=='center'">
+                <label class="btn btn-outline-primary" for="btnradio2"><i class="bi bi-text-center"></i></label>
+            
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="right" [(ngModel)]="this.bservice.settings.textalign" [checked]="this.bservice.settings.textalign=='right'">
+                <label class="btn btn-outline-primary" for="btnradio1"><i class="bi bi-text-right"></i></label>
+
+            </div>
+        </div>
+        
+
+        
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">خلفية الشريط</label>
+                <input (input)="fileChoosen($event)" class="form-control" type="file" id="formFile">
+                <div *ngIf="settings.background!=''">
+                    <img [src]="'http://localhost:3000/settings/background/'+this.bservice.settings.background" width="100%" />
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">لون النص</label>
+                <input name="text-color" type="color"  class="form-control" id="colorpicker" [(ngModel)]="this.bservice.settings.textcolor">
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <hr>
+            <button class="btn btn-primary" (click)="save()">حفظ</button>
+        </div>
+        
+    </form>
+</div>
+
+    <div style="flex:1">
+        <div class="slider-preview" [style]="this.bservice.getSliderStyle()">
+            عباس مجبل
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+
+
+.image-parent {
+}
+
+.image-parent img
+{
+    height:30px;
+}
+
+
+.list-group li:first-child
+{
+    border-top: 0;;
+}
+
+.side-message{
+    padding:5px;
+    background-color:rgba(255, 255, 255 , 0.5);
+    position: fixed;
+    right:10px;
+    bottom:10px;
+    z-index: 1000;
+    border:1px solid #777;
+    border-radius: 5px;
+    width:300px;
+  }
+
+  .side-message img
+  {
+      height:20px;
+  }
+
+  .nav-tabs .nav-item button
+  {
+    padding: 15.5px 25px;
+    border-radius: 0;
+  }
+
+  .list-group-item
+  {
+      border-radius: 0;
+      border-width: 1px 0 0 0;
+      font-size:14px;
+  }
+
+  .component-box {
+    height: 100px;
+    width:100px ;
+    flex-grow: 1;
+  }
+
+  .tab-pane.active{
+    display: flex;
+
+  }
+  .tab-pane
+  {
+    min-height: 100px;
+    min-width: 100px;
+    overflow: auto;
+    resize: both;
+    flex-grow: 1;
+    margin:0;
+    padding:0;
+    height:100%;
+  }
+
+  .tab-content
+  {
+      flex:1;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .component-name{
+      display: none;
+    }
+
+    .mobile-list
+    {
+      flex-direction: row;
+    }
+
+    .img-fluid
+    {
+      max-width: initial;
+    }
+
+    .tab-pane{
+      min-height: initial;
+    }
+
+    .component-box{
+      min-height: initial;
+      height: initial;
+    }
+
+    .nav-tabs .nav-item button
+    {
+      padding: .5rem 1rem;
+      border-radius: 0;
+    }
+  
+}
+  

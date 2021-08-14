@@ -1,0 +1,13 @@
+<div class="viewer-flex">
+    <div class="navigation-tabs">
+        <app-side-tabs activeTab="home"></app-side-tabs>     
+    </div>
+    <div class="navigation-tabs settings-tabs" style="width:200px">
+        <app-settings-tabs activeTab="home"></app-settings-tabs>     
+    </div>
+    
+    <div style="flex:1">
+        <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+</div>
+

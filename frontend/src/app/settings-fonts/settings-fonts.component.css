@@ -1,0 +1,12 @@
+.font
+{
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    cursor: pointer;
+    font-size:20px;
+}
+
+.active
+{
+    background-color: green;
+}

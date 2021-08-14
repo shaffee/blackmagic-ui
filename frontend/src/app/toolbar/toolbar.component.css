@@ -1,0 +1,46 @@
+.component-img
+{
+    height:30px;
+}
+
+.navbar
+{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+.circuit-title-field
+{
+    position: absolute;
+    left: 20px;
+    right: 300px;
+    z-index: 100000;
+}
+
+.circuit-title-label
+{
+    text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+width:400px;
+margin-right:20px;
+z-index: 100;
+color:rgba(0,0,0,.7);
+padding-left: .5rem;
+
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .hide-mobile
+    {
+        display: none;
+    }
+
+    .mobile-btn
+    {
+        margin-left:5px !important;
+        margin-right: 5px !important;
+    }
+}

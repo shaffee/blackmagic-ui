@@ -1,0 +1,25 @@
+<div id="properties-form">
+    <div *ngFor="let property of (properties| async | keyvalue)">
+        <div class="mb-3">
+        <div *ngIf="property.value.type=='checkbox'" class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                {{property.value.label}}
+            </label>
+        </div>
+    </div>
+    
+    
+        <div *ngIf="property.value.type=='toggle'" class="form-check form-switch">
+            <input (change)="updateProperties()" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="property.value.value">
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{property.value.label}}</label>
+        </div>
+          
+        <div *ngIf="property.value.type=='text'" class="mb-3">
+            <label for="input-{{property.value.name}}" class="form-label">{{property.value.label}} {{property.key}}</label>
+            <input (keyup)="updateProperties()" [(ngModel)]="property.value.value" type="email" class="form-control" id="input-{{property.value.name}}" placeholder="{{property.value.label}}">
+        </div>
+          
+    </div>
+    
+</div>

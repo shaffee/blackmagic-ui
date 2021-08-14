@@ -1,0 +1,15 @@
+.stage
+{
+    padding:0;
+}
+
+.circuit-image
+{
+    width:100%;
+}
+
+.open-circuit-navbar
+{
+    z-index: 10000;
+    border-bottom:1px solid #ccc;
+}

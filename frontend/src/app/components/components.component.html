@@ -1,0 +1,51 @@
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button style="border-left:0" class="nav-link active" id="digital-tab" data-bs-toggle="pill" data-bs-target="#digital" type="button" role="tab" aria-controls="pills-digital" aria-selected="true">Digital</button>
+
+    </li>
+    <li class="nav-item" role="presentation">
+       <button class="nav-link" id="analog-tab" data-bs-toggle="pill" data-bs-target="#analog" type="button" role="tab" aria-controls="pills-analog" aria-selected="true">Analog</button>
+
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="digital" role="tabpanel" aria-labelledby="digital-tab">
+      <div class="component-box">
+      <ul class="list-group mobile-list">
+            <li (click)="selectComponent(comp.id)" [ngClass]="{'active' : comp.id == getSelectedComponentId()}" class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let comp of filterItemsOfType('digital')">
+                  <div class="image-parent">
+                    <img class="img-fluid" alt="quixote" src="{{'assets/components/'+comp.id+'.svg'}}" :id="comp.id"/>
+                  </div>
+                  <span class="component-name">{{comp.title}} </span>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="analog" role="tabpanel" aria-labelledby="analog-tab">
+
+      <ul class="list-group component-box mobile-list">
+          <li (click)="selectComponent(comp.id)" [ngClass]="{'active' : comp.id == getSelectedComponentId()}" class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let comp of filterItemsOfType('analog')">
+                <div class="image-parent">
+                  <img class="img-fluid" alt="quixote" src="{{'assets/components/'+comp.id+'.svg'}}" :id="comp.id"/>
+                </div>
+                <span class="component-name">{{comp.title}} </span>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+
+<div class="side-message" *ngIf="getSelectedComponentId()">
+  <p>
+    <img class="pull-left" alt="quixote" src="{{'assets/components/'+getSelectedComponentId()+'.svg'}}" :id="comp.id"/>
+    {{selectedComponent.title}} 
+  </p>
+
+  <p>
+    Click  <span class="badge" [ngClass]="this.shiftKey ? 'bg-success' : 'bg-light text-dark'">SHIFT</span> to add multiple  <br />
+    Click  <span class="badge bg-light text-dark">ESC</span> to cancel 
+
+  </p>
+</div>

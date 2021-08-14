@@ -1,0 +1,54 @@
+<div class="editor-flex">
+  <div class="navigation-tabs" *ngIf="this.editorservice.display.getValue()['components']">
+    <app-side-tabs  activeTab="editor"></app-side-tabs>     
+  </div>
+
+  <div class="side" *ngIf="this.editorservice.display.getValue()['components']">
+      
+    <app-components></app-components>
+  </div>
+  <div class="editor">
+      <div class="toolbar-flex" *ngIf="this.editorservice.display.getValue()['toolbar']">
+        <app-toolbar></app-toolbar>
+      </div>
+
+      <div class="stage">
+          <div class="stage-editor">
+            <div class="box">
+            <router-outlet #routerOutlet="outlet"></router-outlet>
+          </div>
+          </div>
+
+          <div class="properties" *ngIf="this.editorservice.display.getValue()['properties']">
+              <app-properties></app-properties>
+          </div>
+      </div>
+      <div class="bottom-flex" *ngIf="this.editorservice.display.getValue()['inspector']">
+          <div id="drawing"></div>
+      </div>
+
+  </div>
+</div>
+
+
+<!--
+<div class="container-fluid h-100">
+  
+  <div class="row justify-content-left h-100">
+    <div class="hidden-md-down" id="side" [class]="this.editorservice.getComponentBarStatus() ? 'enabled-components' : 'disabled-components'">
+        <app-components></app-components>
+    </div>
+    <div class="stage">
+        <div class="toolbar">
+            <app-toolbar></app-toolbar>
+        </div>
+        <div class="canvas" id="canvas">
+          <img id="selectedImg" style="opacity: 0.3;position: absolute;z-index:2000"/>
+         
+          <router-outlet #routerOutlet="outlet"></router-outlet>
+
+        </div>
+    </div>
+  </div>
+</div>
+-->

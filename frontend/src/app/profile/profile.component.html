@@ -1,0 +1,74 @@
+<div class="editor-flex">
+	<div class="navigation-tabs">
+	  <app-side-tabs activeTab="profile"></app-side-tabs>     
+	</div>
+  
+	<div class="home">
+		<div class="container">
+			<div class="row gutters">
+			<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+			<div class="card h-100">
+				<div class="card-body">
+					<div class="account-settings">
+						<div class="user-profile">
+							<div class="user-avatar">
+								<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+							</div>
+							<h5 class="user-name">{{this.profileData['name']}}</h5>
+							<h6 class="user-email">{{this.profileData['email']}}</h6>
+						</div>
+						<div class="about">
+							<h5>About</h5>
+							<p>{{this.profileData['about']}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+			<div class="card h-100">
+				<div class="card-body">
+					<div class="row g-3">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<h6 class="mb-2 text-primary">Personal Details</h6>
+						</div>
+						
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<label class="form-label" for="name-field">Full Name</label>
+								<input [(ngModel)]="this.profileData['name']" type="text" class="form-control" id="name-field" placeholder="Enter full name" autocomplete="off">
+						</div>
+
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<label class="form-label" for="mobile-field">Mobile</label>
+							<input type="text" [(ngModel)]="this.profileData['mobile']" class="form-control" id="mobile-field" placeholder="Your mobile with country code. Example +973-36646773" autocomplete="off">
+						</div>
+
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<label class="form-label" for="about-field">About you</label>
+							<input type="text" [(ngModel)]="this.profileData['about']" class="form-control" id="about-field" placeholder="Write brief about your self." autocomplete="off">
+						</div>
+					</div>
+					<div class="row g-3">
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<h6 class="mt-3 mb-2 text-primary">University</h6>
+							</div>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<label class="form-label" for="university-field">University Name</label>
+								<input [(ngModel)]="this.profileData['university']"  type="text" class="form-control" id="university-field" placeholder="University Name">
+							</div>
+					</div>
+					<hr class="my-4">
+					<div class="row g-3">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="text-right">
+								<button (click)="updateProfile()" type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+  </div>

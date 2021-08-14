@@ -1,0 +1,49 @@
+<div class="viewer-flex">
+	<div class="navigation-tabs">
+		<app-side-tabs activeTab="home"></app-side-tabs>     
+	  </div>
+<table class="main-view">
+	<tr>
+		<td rowspan="2" width="50%" valign="top" class="main-tabs">
+			
+			<router-outlet #routerOutlet="outlet"></router-outlet>
+			
+			
+			
+
+		</td>
+		<td style="height:50%;"	>
+			<div class="main-div">
+
+			<div class="title preview">
+				PREVIEW
+			</div>
+			<iframe frameborder="0" src="http://localhost:4200/screen/50" class="main-frame"></iframe>
+
+			</div>
+		</td>
+
+	</tr>
+	<tr>
+		<td style="height:50%;">
+			<div class="main-div">
+				
+				<div class="title live"> 
+					LIVE 
+				</div>
+				
+				<div class="title control"> 
+					<a href="http://192.168.1.120:8080?id=-1" class="ajax">مسح الشاشة</a> 
+				</div>	
+
+				<iframe frameborder="0" src="http://localhost:4200/screen/50" class="main-frame"></iframe>
+				
+			</div>
+		</td>
+	</tr>
+
+</table>
+
+
+
+  </div>

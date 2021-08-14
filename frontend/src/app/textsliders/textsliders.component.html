@@ -1,0 +1,26 @@
+<a [routerLink]="['/viewer/addtextslider']" class="side-nav-link nav-link border-bottom" title="" data-toggle="tooltip" data-placement="right" title="Orders">إضافة شريط</a>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">النص</th>
+        <th scope="col">الثواني</th>
+        <th scope="col">حجم الخط</th>
+        <th width="200px">الأوامر</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slider of sliders">
+        <td>{{slider.text}}</td>
+        <td>{{slider.seconds}}</td>
+        <td>{{slider.textsize}}</td>
+        <td>
+          <a (click)="delete(slider._id)" class="btn btn-light">حذف</a>
+          <a (click)="present(slider._id)" class="btn btn-light">عرض</a>
+        </td>
+
+      </tr>
+      
+    </tbody>
+  </table>

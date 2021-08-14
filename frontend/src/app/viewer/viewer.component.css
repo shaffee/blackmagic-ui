@@ -1,0 +1,104 @@
+
+.main-view
+{
+	width:100%;
+	height:100%;	
+}
+
+.main-view td
+{
+	border:2px solid #ccc;
+	padding: 0;
+	height: auto;
+	height: 100%;
+}
+
+.main-view .main-div
+{
+	height:100%;
+	width:100%;	
+	padding: 0;
+	position: relative;
+	top:0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.main-view .title
+{
+	padding:5px;
+	width:100px;
+	background-color:#ccc;	
+	position: absolute;
+	top:10px;
+	left: 10px;
+}
+
+.title.live
+{
+	color:#ffffff;
+	background: #9c0000;
+	border-radius:10px;
+	text-align: center;
+	font-weight:bold;	
+}
+
+.title.control
+{
+	color:#ffffff !important;
+	background: #9c0000 !important;
+	border-radius:10px;
+	text-align: center;
+	font-weight:bold;
+	padding:5px;
+	width:100px;
+	position: absolute;
+	top:10px;
+	left: 120px;
+}
+.title.control a
+{
+	color:#fff;
+}
+
+.title.preview
+{
+	color:#ffffff;
+	background: #cda900;
+	border-radius:10px;
+	text-align: center;
+	font-weight:bold;	
+}
+
+.main-frame
+{
+	height:calc(100% - 5px);
+	width:100%;
+	border: 0;
+}
+
+.main-tabs .tab-content
+{
+	height:calc(100% - 50px);
+}
+
+.main-tabs .tab-content .tab-pane
+{
+	height:100%;
+	padding-top:30px;	
+}
+
+
+.fonts-view td
+{
+
+	border:1px solid #ccc;
+	padding:10px;
+}
+
+.fonts-view .view
+{
+	height:150px;
+	font-size:30px;
+}
