@@ -1,7 +1,10 @@
 #!/bin/bash
 
+git pull
 npm install
+
 cd $PWD/../frontend
+git pull
 npm install
 rm -R /tmp/production_tmp
 mkdir -p /tmp/production_tmp
