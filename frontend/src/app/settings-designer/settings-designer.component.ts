@@ -5,6 +5,8 @@ import { Observable, Subject } from 'rxjs';
 import { BlackuiService } from '../blackui.service';
 import {Setting} from '../models'
 import { environment } from '../../environments/environment';
+import { io } from "socket.io-client";
+
 
 @Component({
   selector: 'app-settings-designer',
@@ -17,6 +19,7 @@ export class SettingsDesignerComponent  {
   private image:File;
   private choosen = false;
   private submitted = false;
+  private socket;
 
   public settings : Setting = new Setting;
 
@@ -26,6 +29,8 @@ export class SettingsDesignerComponent  {
   ) { }
 
   ngOnInit(): void {
+    this.socket = io(environment.APIURL);
+
     this.bservice.activeSettingsTab = 'designer';
     this.bservice.activeTab = 'settings';
 

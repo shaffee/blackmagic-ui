@@ -16,12 +16,16 @@ export class BlackuiService  {
     private http : HttpClient,
   ) {
     
+    this.updateSettings();
+  }
+  
+
+  public updateSettings(){
     this.http.get<Setting>("settings/getSettings")
     .subscribe(data => {
       this.settings = data;
     });
   }
-  
 
   public getSliderStyle():string{
     var style = [];

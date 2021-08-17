@@ -27,6 +27,12 @@ export class GreenscreenComponent implements OnInit {
 
     this.zoom = this.activatedRoute.snapshot.params.zoom + '%';
 
+    setInterval(()=>{ 
+      this.bservice.updateSettings();
+    }, 2000);
+
+    
+
     socket.on("show-slider", (data) => {
       this.animation = this.bservice.settings.entrance_animation;
       this.content = data.content;
