@@ -25,7 +25,7 @@ export class GreenscreenComponent implements OnInit {
     const socket = io("http://localhost:3000");
 
     this.zoom = this.activatedRoute.snapshot.params.zoom + '%';
-    console.log(this.zoom);
+
     socket.on("show-slider", (data) => {
       this.animation = this.bservice.settings.entrance_animation;
       this.content = data.content;

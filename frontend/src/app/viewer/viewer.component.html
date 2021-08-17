@@ -8,9 +8,6 @@
 			
 			<router-outlet #routerOutlet="outlet"></router-outlet>
 			
-			
-			
-
 		</td>
 		<td style="height:50%;"	>
 			<div class="main-div">
@@ -18,7 +15,7 @@
 			<div class="title preview">
 				PREVIEW
 			</div>
-			<iframe frameborder="0" src="http://localhost:4200/screen/50" class="main-frame"></iframe>
+			<iframe frameborder="0" [src]="URL" class="main-frame"></iframe>
 
 			</div>
 		</td>
@@ -33,10 +30,10 @@
 				</div>
 				
 				<div class="title control"> 
-					<a href="http://192.168.1.120:8080?id=-1" class="ajax">مسح الشاشة</a> 
+					<a [href]="" class="ajax">مسح الشاشة</a> 
 				</div>	
 
-				<iframe frameborder="0" src="http://localhost:4200/screen/50" class="main-frame"></iframe>
+				<iframe frameborder="0" [src]="URL" class="main-frame"></iframe>
 				
 			</div>
 		</td>

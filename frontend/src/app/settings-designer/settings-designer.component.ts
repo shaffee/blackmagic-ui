@@ -64,8 +64,6 @@ export class SettingsDesignerComponent  {
       this.http.post("settings/upload", formdata)
       .subscribe(data => {
           this.bservice.settings.background = data['file'];
-
-          console.log(this.settings);
       });
   }
   

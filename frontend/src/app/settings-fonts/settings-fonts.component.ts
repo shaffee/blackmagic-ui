@@ -13,7 +13,7 @@ export class SettingsFontsComponent implements OnInit {
   public settings : Setting = new Setting;
   
   constructor(
-    private bservice: BlackuiService,
+    public bservice: BlackuiService,
     private http : HttpClient,
   ) { }
 
@@ -23,16 +23,16 @@ export class SettingsFontsComponent implements OnInit {
 
     this.http.get<Setting>("settings/getSettings")
     .subscribe(data => {
-      this.settings = data;
+      this.bservice.settings = data;
     });
 
   }
 
   chooseFont(font:string) : void{
 
-    this.settings['fontfamily'] = font;
+    this.bservice.settings.fontfamily = font;
     
-    this.http.post<HttpResponse<any>[]>("settings/saveSettings",this.settings)
+    this.http.post<HttpResponse<any>[]>("settings/saveSettings",this.bservice.settings)
     .subscribe(data => {
       
     });

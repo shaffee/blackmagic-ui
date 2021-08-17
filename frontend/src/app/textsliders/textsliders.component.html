@@ -16,8 +16,8 @@
         <td>{{slider.seconds}}</td>
         <td>{{slider.textsize}}</td>
         <td>
-          <a (click)="delete(slider._id)" class="btn btn-light">حذف</a>
-          <a (click)="present(slider._id)" class="btn btn-light">عرض</a>
+          <button (click)="delete(slider.id)" class="btn btn-secondary ms-2">حذف</button> 
+          <button (click)="present(slider.id)" class="btn btn-secondary">عرض</button>
         </td>
 
       </tr>

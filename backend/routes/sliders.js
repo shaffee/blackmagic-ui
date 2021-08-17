@@ -1,5 +1,5 @@
 const express = require('express');
-var mongo = require( '../utils/mongodb' );
+var mysql = require( '../utils/mysql' );
 var ObjectId = require('mongodb').ObjectId;
 const router = express.Router();
 var jwt = require('jsonwebtoken');
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 var sess;
 
-router.post('/addtextslider', (req, res) => {
+router.post('/addtextslider', async (req, res) => {
   console.log(req.sessionID);
   console.log(req.session);
   req.session.test = 'dsada';
@@ -24,62 +24,55 @@ router.post('/addtextslider', (req, res) => {
     type:'text',
   };
   
-  mongo.getDb().collection("sliders").insert(slider, function(err,docsInserted){
-    var data = {
-      id:docsInserted.insertedIds[0],
-    };
-    
-    //var token = jwt.sign( data , 'shhhhh');
-
+  var query = await mysql.getDb().query('INSERT INTO slider_text SET ?', slider, function(err, result) {
     res.send({status:'success', code: 200 , msg:'تم إضافة الشريط بنجاح'});
   });
 
 });
 
-router.get('/gettextsliders', (req, res) => {
+router.get('/gettextsliders', async (req, res) => {
 
-    mongo.getDb().collection( 'sliders' ).find({type:'text'}).toArray(function(err, result){
-      result.reverse();
-      res.send({status:'success', code: 100 , msg:'sliders list',data:result});
-    });
+  const result = await mysql.getDb().query('select * from slider_text' , (err, results) => {
+    console.log();
+    res.send({status:'success', code: 100 , msg:'data' , data : results});
+  });
+
+  
 });
 
-router.get('/delete/:ID', (req, res) => {
+router.get('/delete/:ID', async (req, res) => {
   var ID = req.params.ID;
 
-  var query = {_id:ObjectId(ID)};
-
-  mongo.getDb().collection("sliders").deleteOne(query, function(err, obj) {
-    if (err) throw err;
-    res.send({status:'success', code: 100 , msg:'slider '+ID+' removed'});
-
+  const result = await mysql.getDb().query('DELETE FROM slider_text WHERE `id`='+ID , (err, results) => {
+    res.send({status:'success', code: 100 , msg:'delete done' });
+    console.log(results);
   });
 
 });
 
-router.get('/present/:ID', (req, res) => {
+router.get('/present/:ID', async (req, res) => {
   var ID = req.params.ID;
 
-  var query = {_id:ObjectId(ID)};
+  await mysql.getDb().query('select * from slider_text WHERE id='+ID , (err, results) => {
+      if( results.length == 1 )
+      {
 
-  mongo.getDb().collection( 'sliders' ).find(query).toArray(function(err, result){
-
-    if( result.length == 1 )
-    {
         var slider = {
           animation : 'slideInRight',
-          content : result[0].text,
-          type : result[0].type
+          content : results[0].text,
+          type : results[0].type
         }
 
         req.app.io.emit('show-slider', slider );
 
-        res.send({status:'success',code : 100 , msg:'slider exists',data:result[0]});
-    }
-    else
-    {
-      res.send({status:'error', code: 300 , msg:'user_exists',data:{}});
-    }
+        res.send({status:'error', code: 300 , msg:'presented',data:{}});
+
+      }
+      else
+      {
+        res.send({status:'error', code: 300 , msg:'user_exists',data:{}});
+
+      }
   });
 });
 

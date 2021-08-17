@@ -6,3 +6,5 @@
 node_modules
 /backend/config.js
 /frontend/src/assets/.DS_Store
+/production
+/production_tmp

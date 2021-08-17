@@ -1,11 +1,8 @@
 const express = require('express');
-const routes = require('./routes/index');
 const sliders = require('./routes/sliders');
-const circuits = require('./routes/circuits');
 const settingsRoute = require('./routes/settings');
 
-var mongoose = require('mongoose');
-var mongo = require( './utils/mongodb' );
+var mysql = require( './utils/mysql' );
 const session = require('express-session');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
@@ -42,10 +39,10 @@ app.use(cors({
 //app.use(session({secret: 'ssshhhhh',resave: false, saveUninitialized: true, cookie: { secure: false }}));
 
 
-mongo.connectToServer( function( err, client ) {
+mysql.connectToServer( function( err ) {
     if (err) console.log(err);
 
-    console.log("connected");
+    console.log("mysql connected");
     // start the rest of your app here
   } );
   
@@ -63,7 +60,6 @@ app.use(express.urlencoded({
 
 //nodejs API
 app.use('/sliders', sliders);
-app.use('/circuits', circuits);
 app.use('/settings', settingsRoute);
 //main static pages / vuejs build
 var staticPath = express.static(config.path);
