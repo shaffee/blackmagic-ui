@@ -12,7 +12,7 @@ export class ApiInterceptor implements HttpInterceptor {
         console.log(request);
         let token = localStorage.getItem('token'); 
         let URL = '';
-
+        console.log(environment);
         URL = environment.APIURL + request.url 
 
         request = request.clone({
