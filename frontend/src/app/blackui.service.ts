@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Setting } from './models';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class BlackuiService  {
   public getSliderStyle():string{
     var style = [];
 
-    style.push('background-image:url(http://localhost:3000/settings/background/'+this.settings.background+")");
+    style.push('background-image:url('+environment.APIURL+'settings/background/'+this.settings.background+")");
     style.push('text-align:'+this.settings.textalign);
     style.push('font-size:'+this.settings.textsize+'px');
     style.push('padding:'+this.settings.padding+'px');

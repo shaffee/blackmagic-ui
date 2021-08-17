@@ -4,6 +4,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { BlackuiService } from '../blackui.service';
 import {Setting} from '../models'
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-settings-designer',
@@ -37,6 +38,10 @@ export class SettingsDesignerComponent  {
     //this.save();
   }
 
+  getBackgroundImage():string{
+   return environment.APIURL + 'settings/background/'+this.bservice.settings.background;
+  }
+  
   save():void{
     this.http.post<HttpResponse<any>[]>("settings/saveSettings",this.bservice.settings)
     .subscribe(data => {

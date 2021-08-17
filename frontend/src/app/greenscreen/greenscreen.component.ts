@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { io } from "socket.io-client";
 import { BlackuiService } from '../blackui.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class GreenscreenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const socket = io("http://localhost:3000");
+    const socket = io(environment.APIURL);
 
     this.zoom = this.activatedRoute.snapshot.params.zoom + '%';
 

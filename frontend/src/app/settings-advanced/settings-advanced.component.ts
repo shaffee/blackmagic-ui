@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlackuiService } from '../blackui.service';
 import { io } from "socket.io-client";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-settings-advanced',
@@ -16,7 +17,7 @@ export class SettingsAdvancedComponent implements OnInit {
   constructor( public bservice : BlackuiService ) { }
 
   ngOnInit(): void {
-    this.socket = io("http://localhost:3000");
+    this.socket = io(environment.APIURL);
 
     this.bservice.activeSettingsTab = 'advanced';
     this.bservice.activeTab = 'settings';
