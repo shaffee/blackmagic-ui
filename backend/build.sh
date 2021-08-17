@@ -1,6 +1,9 @@
 #!/bin/bash
 
+cd $PWD/../
 git pull
+
+cd backend
 npm install
 
 cd $PWD/../frontend
