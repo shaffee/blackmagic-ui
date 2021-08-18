@@ -22,7 +22,7 @@ export class SettingsAdvancedComponent implements OnInit {
     this.bservice.activeSettingsTab = 'advanced';
     this.bservice.activeTab = 'settings';
 
-    this.output = "dsdfsd";
+    this.output = "";
     this.socket.on("update-process", (data) => {
       this.output += data['msg'];
     });

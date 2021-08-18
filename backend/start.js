@@ -23,7 +23,7 @@ var commands = ``;
 app.io.on('connection', (socket) => {
 
   socket.on('rebuild', (socket) => {
-      ls    = spawn('sh',['build.sh']);
+      ls    = spawn('sh',['/home/pi/blackmagic-ui/backend/build.sh']);
 
       ls.stdout.on('data', function (data) {
         app.io.emit("update-process", {msg:data.toString(),type:'msg'});
