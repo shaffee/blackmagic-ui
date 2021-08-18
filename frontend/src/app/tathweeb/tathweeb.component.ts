@@ -103,7 +103,7 @@ export class TathweebComponent implements OnInit {
       })  
   }
   
-  present(ID:string ):void{
+  present():void{
     this.http.get<HttpResponse<any>[]>("tathweeb/present")
     .subscribe(response => {
       
