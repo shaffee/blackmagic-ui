@@ -23,13 +23,16 @@ import { SettingsTabsComponent } from './settings-tabs/settings-tabs.component';
 import { SettingsDesignerComponent } from './settings-designer/settings-designer.component';
 import { SettingsAnimationsComponent } from './settings-animations/settings-animations.component';
 import { SettingsFontsComponent } from './settings-fonts/settings-fonts.component';
-import { SettingsAdvancedComponent } from './settings-advanced/settings-advanced.component'
+import { SettingsAdvancedComponent } from './settings-advanced/settings-advanced.component';
+import { TathweebComponent } from './tathweeb/tathweeb.component'
+import { NgMarqueeModule } from 'ng-marquee';
 
 const routes: Routes = [
   { path: 'viewer', component:ViewerComponent  ,
       children: [
         { path: 'textsliders' , component:TextslidersComponent},
         { path: 'addtextslider' , component:AddtextsliderComponent},
+        { path: 'tathweeb' , component:TathweebComponent},
         { path: '' , component:HomeComponent},
       ]},
   { path: 'screen/:zoom', component:GreenscreenComponent   },
@@ -67,6 +70,7 @@ export function tokenGetter() {
     SettingsAnimationsComponent,
     SettingsFontsComponent,
     SettingsAdvancedComponent,
+    TathweebComponent,
     
   ],
   imports: [
@@ -74,6 +78,7 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    NgMarqueeModule,
     RouterModule.forRoot(routes,{enableTracing: true, /* <-- debugging purposes only*/}),
     JwtModule.forRoot({
       config: {

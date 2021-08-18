@@ -1,0 +1,66 @@
+    
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">الصور</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">الشريط النصي</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">التحكم</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="p-4">
+            <input class="form-control" type="file" multiple (input)="fileChoosen($event)">
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-6 g-2 p-1"  style="height:600px;overflow:auto">
+            <div class="col"  *ngFor="let img of uploadedImages">
+            <div class="card" >
+                <img [src]="img.src" class="card-img-top" alt="...">
+            </div>  
+            </div>    
+        </div>
+  
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="input-group p-3" dir="ltr">
+        <div class="input-group-prepend">
+          <button (click)="addText()" class="btn btn-outline-secondary" type="button">أضف النص</button>
+        </div>
+        <input [(ngModel)]="sliderText" name="sliderText" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">النص</th>
+            <th scope="col">الثواني</th>
+            <th scope="col">حجم الخط</th>
+            <th width="200px">الأوامر</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let slider of sliders">
+            <td>{{slider.text}}</td>
+            <td>{{slider.seconds}}</td>
+            <td>{{slider.textsize}}</td>
+            <td>
+              <button (click)="delete(slider.id)" class="btn btn-secondary ms-2">حذف</button> 
+            </td>
+    
+          </tr>
+          
+        </tbody>
+      </table>
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="p-5">
+        <button (click)="present()" class="btn btn-danger">عرض</button>
+      </div>
+  </div>
+</div>

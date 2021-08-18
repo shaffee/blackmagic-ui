@@ -12,11 +12,16 @@ import { environment } from '../../environments/environment';
 })
 export class GreenscreenComponent implements OnInit {
 
-  animation = "flip";
-  elementType = "text";
+  animation = "";
+  elementType = "";
   content = "";
   zoom = '100%';
   
+  sliderIndex = 0;
+  sliderImages = [];
+  sliderText = [];
+  sliderTimerSeconds = 5;
+
   constructor(
     private bservice : BlackuiService,
     private activatedRoute: ActivatedRoute
@@ -29,10 +34,10 @@ export class GreenscreenComponent implements OnInit {
 
     setInterval(()=>{ 
       this.bservice.updateSettings();
-    }, 2000);
+      this.playSlider();
+    }, 1000);
 
     
-
     socket.on("show-slider", (data) => {
       this.animation = this.bservice.settings.entrance_animation;
       this.content = data.content;
@@ -43,7 +48,33 @@ export class GreenscreenComponent implements OnInit {
       }, 5000);
     });
 
+    socket.on("show-tathweeb", (eventData) => {
 
+      for( var i=0; i<eventData.images.length; i++ )
+      {
+        eventData.images[i]['src'] = environment.APIURL + 'tathweeb/getImage/' + eventData.images[i].filename;
+      }
+
+      this.animation = this.bservice.settings.entrance_animation;
+      this.sliderImages = eventData.images;
+      this.sliderText = eventData.text;
+      this.elementType = 'tathweeb';
+    });
+
+  }
+
+
+  playSlider():void{
+    var d = new Date();
+    var n = d.getSeconds();
+
+    if( n % this.sliderTimerSeconds == 0 )
+    {
+      if( this.elementType == 'tathweeb' )
+      {
+        this.sliderIndex = ++this.sliderIndex % this.sliderImages.length;
+      }
+    }
   }
 
 }

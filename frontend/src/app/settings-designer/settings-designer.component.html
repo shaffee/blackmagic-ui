@@ -38,7 +38,7 @@
             <div class="mb-3">
                 <label for="formFile" class="form-label">خلفية الشريط</label>
                 <input (input)="fileChoosen($event)" class="form-control" type="file" id="formFile">
-                <div *ngIf="settings.background!=''">
+                <div *ngIf="this.bservice.settings.background!=''">
                     <img [src]="getBackgroundImage()" width="100%" />
                 </div>
             </div>

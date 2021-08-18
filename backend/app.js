@@ -1,5 +1,6 @@
 const express = require('express');
 const sliders = require('./routes/sliders');
+const tathweebRoute = require('./routes/tathweeb');
 const settingsRoute = require('./routes/settings');
 
 var mysql = require( './utils/mysql' );
@@ -61,6 +62,8 @@ app.use(express.urlencoded({
 //nodejs API
 app.use('/sliders', sliders);
 app.use('/settings', settingsRoute);
+app.use('/tathweeb', tathweebRoute);
+
 //main static pages / vuejs build
 var staticPath = express.static(config.path);
 app.use('/', staticPath );

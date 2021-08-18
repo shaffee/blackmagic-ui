@@ -5,4 +5,18 @@
 		{{content}}
 	</div>
 
+	<div  [className]="'tathweeb animate__animated animate__'+animation" class="" id="slider" *ngIf="elementType=='tathweeb';" >
+		<img [src]="sliderImages[sliderIndex].src" class="tathweeb-img" />
+		<div class="tathweeb-text">
+			<ng-marquee speed="slow" direction="right">
+
+				<mark>
+					
+					<span *ngFor="let text of sliderText">•&nbsp; {{text.text}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+				</mark>
+			</ng-marquee>
+			
+		</div>
+	</div>
 </div>

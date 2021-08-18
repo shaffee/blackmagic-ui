@@ -21,8 +21,6 @@ export class SettingsDesignerComponent  {
   private submitted = false;
   private socket;
 
-  public settings : Setting = new Setting;
-
   constructor(
     public bservice : BlackuiService,
     private http: HttpClient,
@@ -36,7 +34,7 @@ export class SettingsDesignerComponent  {
 
     this.http.get<Setting>("settings/getSettings")
     .subscribe(data => {
-      this.settings = data;
+      this.bservice.settings = data;
     });
 
 

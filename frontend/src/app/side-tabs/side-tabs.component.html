@@ -12,6 +12,11 @@
       </a>
     </li>
 
+    <li class="nav-item">
+      <a [routerLink]="['/viewer/tathweeb']" [ngClass]="{'active' : getTab()=='tathweeb'}" class="side-nav-link nav-link border-bottom" title="" data-toggle="tooltip" data-placement="right" title="Orders">
+        <div class="side-tab-icon"><i class="bi bi-card-heading"></i></div> شريط التثويب
+      </a>
+    </li>
 
     <li class="nav-item">
       <a [routerLink]="['/settings']" [ngClass]="{'active' : getTab()=='settings'}" href="#" class="side-nav-link nav-link border-bottom" title="" data-toggle="tooltip" data-placement="right" title="Orders">
