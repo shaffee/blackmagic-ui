@@ -8,3 +8,4 @@ node_modules
 /frontend/src/assets/.DS_Store
 /production
 /production_tmp
+uploads
