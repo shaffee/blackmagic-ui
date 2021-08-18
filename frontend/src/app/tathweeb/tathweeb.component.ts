@@ -79,6 +79,13 @@ export class TathweebComponent implements OnInit {
     });
   }
 
+  deleteImage(ID:string ):void{
+    this.http.get<HttpResponse<any>[]>("tathweeb/deleteImage/"+ID)
+    .subscribe(response => {
+      this.getImages();
+    });
+  }
+
 
   delete(ID:string ):void{
     this.http.get<HttpResponse<any>[]>("tathweeb/delete/"+ID)

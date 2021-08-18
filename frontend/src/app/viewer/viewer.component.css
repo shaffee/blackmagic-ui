@@ -1,13 +1,13 @@
 
 .main-view
 {
-	width:100%;
+	flex:1;
 	height:100%;	
 }
 
 .main-view td
 {
-	border:2px solid #ccc;
+	border:0;
 	padding: 0;
 	height: auto;
 	height: 100%;

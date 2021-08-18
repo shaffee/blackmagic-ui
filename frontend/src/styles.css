@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
 @import '~animate.css/animate.min';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "tahoma"; }
+body { margin: 0;     font-family: 'Tajawal', sans-serif;
+}
 
 #logreg-forms{
     text-align: left;
@@ -138,7 +139,6 @@ body { margin: 0; font-family: Roboto, "tahoma"; }
     width:90px;
     display:flex;
     flex-direction: column;
-    border-left:1px solid #ccc;
 }
 
 
@@ -175,7 +175,6 @@ app-side-tabs
       height:35px;
       display:flex;
       flex-direction: row;
-      border-bottom:1px solid #ccc;
       border-right: 0;
   }
 

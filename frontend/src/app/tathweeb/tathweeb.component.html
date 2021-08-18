@@ -21,6 +21,8 @@
         <div class="row row-cols-1 row-cols-md-6 g-2 p-1"  style="height:600px;overflow:auto">
             <div class="col"  *ngFor="let img of uploadedImages">
             <div class="card" >
+              <div class="button"><a (click)="deleteImage(img.id)" class="btn btn-danger"> BUTTON </a></div>
+
                 <img [src]="img.src" class="card-img-top" alt="...">
             </div>  
             </div>    

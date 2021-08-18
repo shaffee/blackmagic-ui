@@ -10,6 +10,16 @@ const upload = multer({ dest: './uploads/' })
   
 
 
+router.get('/deleteImage/:ID', async (req, res) => {
+    var ID = req.params.ID;
+
+    const result = await mysql.getDb().query('DELETE FROM tathweeb WHERE `id`='+ID , (err, results) => {
+        res.send({status:'success', code: 100 , msg:'delete done' });
+        console.log(results);
+    });
+
+});
+
 router.get('/delete/:ID', async (req, res) => {
     var ID = req.params.ID;
 
