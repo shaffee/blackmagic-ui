@@ -1,4 +1,8 @@
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+
 <div class="live" [style]="'zoom:'+this.zoom">
 	<div  [className]="'slider slider-element animate__animated animate__'+animation" [style]="this.bservice.getSliderStyle()" class="" id="slider" *ngIf="elementType=='text';" >
 			
@@ -8,7 +12,7 @@
 	<div  [className]="'tathweeb animate__animated animate__'+animation" class="" id="slider" *ngIf="elementType=='tathweeb';" >
 		<img [src]="sliderImages[sliderIndex].src" class="tathweeb-img" />
 		<div class="tathweeb-text">
-			<ng-marquee speed="slow" direction="right">
+			<ng-marquee speed="drowsy" direction="right">
 
 				<mark>
 					

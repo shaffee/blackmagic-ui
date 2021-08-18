@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+
 mark{
     background-color: transparent;
     color:#fff;
@@ -37,6 +41,8 @@ mark{
     position: absolute;
     bottom: 0;
     width: 100%;
+    font-family: 'Tajawal', sans-serif;
+    padding:20px;
 }
 .live_preview
 {
