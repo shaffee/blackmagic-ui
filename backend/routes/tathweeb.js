@@ -9,7 +9,6 @@ const multer  = require('multer')
 const upload = multer({ dest: './uploads/' })
   
 
-
 router.get('/deleteImage/:ID', async (req, res) => {
     var ID = req.params.ID;
 

@@ -55,6 +55,7 @@ export class TathweebComponent implements OnInit {
           //this.bservice.settings.background = data['file'];
 
           this.getImages();
+          this.present();
       });
   }
 
@@ -83,6 +84,7 @@ export class TathweebComponent implements OnInit {
     this.http.get<HttpResponse<any>[]>("tathweeb/deleteImage/"+ID)
     .subscribe(response => {
       this.getImages();
+      this.present();
     });
   }
 
@@ -91,6 +93,7 @@ export class TathweebComponent implements OnInit {
     this.http.get<HttpResponse<any>[]>("tathweeb/delete/"+ID)
     .subscribe(response => {
       this.getSliders();
+      this.present();
     });
   }
 
@@ -106,6 +109,7 @@ export class TathweebComponent implements OnInit {
 
         this.getSliders();
         this.sliderText = '';
+        this.present();
 
       })  
   }
