@@ -53,7 +53,11 @@ router.get("/getImage/:IMAGE",(req,res) => {
     if( req.params.IMAGE != 'undefined' )
     {
         fs.readFile('./uploads/' + req.params.IMAGE , function(err, data) {
-            if (err) throw err; // Fail if the file can't be read.
+            if (err)
+            {
+                console.log("error no file ");
+                console.log(err);
+            }
                 res.writeHead(200, {'Content-Type': 'image/jpeg'});
                 res.end(data); // Send the file data to the browser.
             });
