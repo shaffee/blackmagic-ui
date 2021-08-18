@@ -12,12 +12,13 @@
 	<div  [className]="'tathweeb animate__animated animate__'+animation" class="" id="slider" *ngIf="elementType=='tathweeb';" >
 		<img [src]="sliderImages[sliderIndex].src" class="tathweeb-img" />
 		<div class="tathweeb-text">
-			<ng-marquee speed="drowsy" direction="right">
+			<ng-marquee  duration="90s" direction="right">
 
 				<mark>
-					
-					<span *ngFor="let text of sliderText">•&nbsp; {{text.text}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
+					<ng-container *ngFor="let text of sliderText" >
+						•&nbsp; {{text.text}} &nbsp;&nbsp;&nbsp;
+					</ng-container>
+						
 				</mark>
 			</ng-marquee>
 			
