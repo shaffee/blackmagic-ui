@@ -13,7 +13,7 @@ export class TathweebComponent implements OnInit {
   private images:File[];
   private choosen = false;
   private submitted = false;
-  private uploadedImages;
+  public uploadedImages;
   public sliderText = '';
   sliders = [];
 
