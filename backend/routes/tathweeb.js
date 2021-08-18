@@ -98,7 +98,7 @@ router.get('/present', async (req, res) => {
 
 
     slider.images = await query('select * from tathweeb');
-    slider.text = await query("select * from slider_text WHERE `type`='tathweebtext'");
+    slider.text = await query("select * from slider_text WHERE `type`='tathweebtext' ORDER BY `id` ASC");
 
     req.app.io.emit('show-tathweeb', slider );
 
