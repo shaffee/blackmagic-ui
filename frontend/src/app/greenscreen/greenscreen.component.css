@@ -7,14 +7,14 @@
     position: absolute;
     height: 100%;
     margin: 0;
-    line-height: 60px;
+    line-height: 80px;
     text-align: center;
     /* Starting position */
     -moz-transform:translateX(-100%);
     -webkit-transform:translateX(-100%);	
     transform:translateX(-100%);
     /* Apply animation to this element */	
-    font-size: 50px;
+    font-size: 65px;
     white-space: nowrap;
     font-family: 'Tajawal', sans-serif;
    }
