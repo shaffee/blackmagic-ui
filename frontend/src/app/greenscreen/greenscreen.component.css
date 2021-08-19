@@ -1,10 +1,45 @@
+.example2 {
+    height: 100%;	
+    overflow: hidden;
+    position: relative;
+   }
+   .example2 h3 {
+    position: absolute;
+    height: 100%;
+    margin: 0;
+    line-height: 60px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(-100%);
+    -webkit-transform:translateX(-100%);	
+    transform:translateX(-100%);
+    /* Apply animation to this element */	
+    font-size: 50px;
+    white-space: nowrap;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes example2 {
+    0%   { -moz-transform: translateX(-100%); }
+    100% { -moz-transform: translateX(100%); }
+   }
+   @-webkit-keyframes example2 {
+    0%   { -webkit-transform: translateX(-100%); }
+    100% { -webkit-transform: translateX(100%); }
+   }
+   @keyframes example2 {
+    0%   { 
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%); 		
+    }
+    100% { 
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%); 
+    }
+   }
 
 
-
-mark{
-    background-color: transparent;
-    color:#fff;
-}
 .tathweeb
 {
     margin: 10px;
@@ -40,7 +75,7 @@ mark{
     position: absolute;
     bottom: 0;
     width: 100%;
-    font-family: 'Tajawal', sans-serif;
+
     padding:20px;
 }
 .live_preview

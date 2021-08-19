@@ -12,15 +12,15 @@
 	<div  [className]="'tathweeb animate__animated animate__'+animation" class="" id="slider" *ngIf="elementType=='tathweeb';" >
 		<img [src]="sliderImages[sliderIndex].src" class="tathweeb-img" />
 		<div class="tathweeb-text">
-			<ng-marquee  duration="90s" direction="right">
-
-				<mark>
-					<ng-container *ngFor="let text of sliderText" >
-						•&nbsp; {{text.text}} &nbsp;&nbsp;&nbsp;
-					</ng-container>
-						
-				</mark>
-			</ng-marquee>
+			<div class="example2">
+				<h3 [style]="getSpeed()">
+				<ng-container *ngFor="let text of sliderText" >
+					•&nbsp; {{text.text}} &nbsp;&nbsp;&nbsp;
+				</ng-container>
+			</h3>
+			</div>
+			
+	
 			
 		</div>
 	</div>

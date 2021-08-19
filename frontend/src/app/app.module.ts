@@ -26,6 +26,7 @@ import { SettingsFontsComponent } from './settings-fonts/settings-fonts.componen
 import { SettingsAdvancedComponent } from './settings-advanced/settings-advanced.component';
 import { TathweebComponent } from './tathweeb/tathweeb.component'
 import { NgMarqueeModule } from 'ng-marquee';
+import { NgTickerModule } from 'ng-ticker';
 
 const routes: Routes = [
   { path: 'viewer', component:ViewerComponent  ,
@@ -79,6 +80,7 @@ export function tokenGetter() {
     HttpClientModule,
     FormsModule,
     NgMarqueeModule,
+    NgTickerModule,
     RouterModule.forRoot(routes,{enableTracing: true, /* <-- debugging purposes only*/}),
     JwtModule.forRoot({
       config: {

@@ -21,6 +21,7 @@ export class GreenscreenComponent implements OnInit {
   sliderImages = [];
   sliderText = [];
   sliderTimerSeconds = 5;
+  sliderSpeedSeconds = 15;
 
   constructor(
     private bservice : BlackuiService,
@@ -28,6 +29,7 @@ export class GreenscreenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     const socket = io(environment.APIURL);
 
     this.zoom = this.activatedRoute.snapshot.params.zoom + '%';
@@ -55,6 +57,15 @@ export class GreenscreenComponent implements OnInit {
         eventData.images[i]['src'] = environment.APIURL + 'tathweeb/getImage/' + eventData.images[i].filename;
       }
 
+      var length = 0;
+
+      for( var i=0; i<eventData.text.length; i++ )
+      {
+        length += eventData.text[i].text.length;
+      }
+
+      this.sliderSpeedSeconds = parseInt(""+(length/5)+"");
+
       this.animation = this.bservice.settings.entrance_animation;
       this.sliderImages = eventData.images;
       this.sliderText = eventData.text;
@@ -63,7 +74,14 @@ export class GreenscreenComponent implements OnInit {
 
   }
 
+  getSpeed():string{
 
+    var css = '-moz-animation: example2 '+this.sliderSpeedSeconds+'s linear infinite;';
+    css += '-webkit-animation: example2 '+this.sliderSpeedSeconds+'s linear infinite;';
+    css += 'animation: example2 '+this.sliderSpeedSeconds+'s linear infinite;"';
+    console.log(css);
+    return css;
+  }
   playSlider():void{
     var d = new Date();
     var n = d.getSeconds();
