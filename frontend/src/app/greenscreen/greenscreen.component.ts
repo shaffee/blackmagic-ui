@@ -64,7 +64,7 @@ export class GreenscreenComponent implements OnInit {
         length += eventData.text[i].text.length;
       }
 
-      this.sliderSpeedSeconds = parseInt(""+(length/5)+"");
+      this.sliderSpeedSeconds = parseInt(""+(length/3)+"");
 
       this.animation = this.bservice.settings.entrance_animation;
       this.sliderImages = eventData.images;
